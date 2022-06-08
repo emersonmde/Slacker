@@ -16,6 +16,7 @@ struct PersistenceController {
         for _ in 0..<10 {
             let newReminder = Reminder(context: viewContext)
             newReminder.trigger = Date()
+            newReminder.text = "Reminder"
         }
         do {
             try viewContext.save()
