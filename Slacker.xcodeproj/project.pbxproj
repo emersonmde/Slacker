@@ -1,0 +1,603 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		34E81A5B285029AF00467F20 /* SlackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E81A5A285029AF00467F20 /* SlackerApp.swift */; };
+		34E81A5D285029AF00467F20 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E81A5C285029AF00467F20 /* ContentView.swift */; };
+		34E81A5F285029B200467F20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34E81A5E285029B200467F20 /* Assets.xcassets */; };
+		34E81A62285029B200467F20 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34E81A61285029B200467F20 /* Preview Assets.xcassets */; };
+		34E81A64285029B200467F20 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E81A63285029B200467F20 /* Persistence.swift */; };
+		34E81A67285029B200467F20 /* Slacker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 34E81A65285029B200467F20 /* Slacker.xcdatamodeld */; };
+		34E81A71285029B200467F20 /* SlackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E81A70285029B200467F20 /* SlackerTests.swift */; };
+		34E81A7B285029B200467F20 /* SlackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E81A7A285029B200467F20 /* SlackerUITests.swift */; };
+		34E81A7D285029B200467F20 /* SlackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E81A7C285029B200467F20 /* SlackerUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		34E81A6D285029B200467F20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 34E81A4F285029AF00467F20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 34E81A56285029AF00467F20;
+			remoteInfo = Slacker;
+		};
+		34E81A77285029B200467F20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 34E81A4F285029AF00467F20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 34E81A56285029AF00467F20;
+			remoteInfo = Slacker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		34E81A57285029AF00467F20 /* Slacker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slacker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		34E81A5A285029AF00467F20 /* SlackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackerApp.swift; sourceTree = "<group>"; };
+		34E81A5C285029AF00467F20 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		34E81A5E285029B200467F20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		34E81A61285029B200467F20 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		34E81A63285029B200467F20 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		34E81A66285029B200467F20 /* Slacker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Slacker.xcdatamodel; sourceTree = "<group>"; };
+		34E81A6C285029B200467F20 /* SlackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		34E81A70285029B200467F20 /* SlackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackerTests.swift; sourceTree = "<group>"; };
+		34E81A76285029B200467F20 /* SlackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		34E81A7A285029B200467F20 /* SlackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackerUITests.swift; sourceTree = "<group>"; };
+		34E81A7C285029B200467F20 /* SlackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		34E81A54285029AF00467F20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34E81A69285029B200467F20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34E81A73285029B200467F20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		34E81A4E285029AF00467F20 = {
+			isa = PBXGroup;
+			children = (
+				34E81A59285029AF00467F20 /* Slacker */,
+				34E81A6F285029B200467F20 /* SlackerTests */,
+				34E81A79285029B200467F20 /* SlackerUITests */,
+				34E81A58285029AF00467F20 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		34E81A58285029AF00467F20 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				34E81A57285029AF00467F20 /* Slacker.app */,
+				34E81A6C285029B200467F20 /* SlackerTests.xctest */,
+				34E81A76285029B200467F20 /* SlackerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		34E81A59285029AF00467F20 /* Slacker */ = {
+			isa = PBXGroup;
+			children = (
+				34E81A5A285029AF00467F20 /* SlackerApp.swift */,
+				34E81A5C285029AF00467F20 /* ContentView.swift */,
+				34E81A5E285029B200467F20 /* Assets.xcassets */,
+				34E81A63285029B200467F20 /* Persistence.swift */,
+				34E81A65285029B200467F20 /* Slacker.xcdatamodeld */,
+				34E81A60285029B200467F20 /* Preview Content */,
+			);
+			path = Slacker;
+			sourceTree = "<group>";
+		};
+		34E81A60285029B200467F20 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				34E81A61285029B200467F20 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		34E81A6F285029B200467F20 /* SlackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				34E81A70285029B200467F20 /* SlackerTests.swift */,
+			);
+			path = SlackerTests;
+			sourceTree = "<group>";
+		};
+		34E81A79285029B200467F20 /* SlackerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				34E81A7A285029B200467F20 /* SlackerUITests.swift */,
+				34E81A7C285029B200467F20 /* SlackerUITestsLaunchTests.swift */,
+			);
+			path = SlackerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		34E81A56285029AF00467F20 /* Slacker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34E81A80285029B200467F20 /* Build configuration list for PBXNativeTarget "Slacker" */;
+			buildPhases = (
+				34E81A53285029AF00467F20 /* Sources */,
+				34E81A54285029AF00467F20 /* Frameworks */,
+				34E81A55285029AF00467F20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Slacker;
+			productName = Slacker;
+			productReference = 34E81A57285029AF00467F20 /* Slacker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		34E81A6B285029B200467F20 /* SlackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34E81A83285029B200467F20 /* Build configuration list for PBXNativeTarget "SlackerTests" */;
+			buildPhases = (
+				34E81A68285029B200467F20 /* Sources */,
+				34E81A69285029B200467F20 /* Frameworks */,
+				34E81A6A285029B200467F20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				34E81A6E285029B200467F20 /* PBXTargetDependency */,
+			);
+			name = SlackerTests;
+			productName = SlackerTests;
+			productReference = 34E81A6C285029B200467F20 /* SlackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		34E81A75285029B200467F20 /* SlackerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34E81A86285029B200467F20 /* Build configuration list for PBXNativeTarget "SlackerUITests" */;
+			buildPhases = (
+				34E81A72285029B200467F20 /* Sources */,
+				34E81A73285029B200467F20 /* Frameworks */,
+				34E81A74285029B200467F20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				34E81A78285029B200467F20 /* PBXTargetDependency */,
+			);
+			name = SlackerUITests;
+			productName = SlackerUITests;
+			productReference = 34E81A76285029B200467F20 /* SlackerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		34E81A4F285029AF00467F20 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					34E81A56285029AF00467F20 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					34E81A6B285029B200467F20 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 34E81A56285029AF00467F20;
+					};
+					34E81A75285029B200467F20 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 34E81A56285029AF00467F20;
+					};
+				};
+			};
+			buildConfigurationList = 34E81A52285029AF00467F20 /* Build configuration list for PBXProject "Slacker" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 34E81A4E285029AF00467F20;
+			productRefGroup = 34E81A58285029AF00467F20 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				34E81A56285029AF00467F20 /* Slacker */,
+				34E81A6B285029B200467F20 /* SlackerTests */,
+				34E81A75285029B200467F20 /* SlackerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		34E81A55285029AF00467F20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34E81A62285029B200467F20 /* Preview Assets.xcassets in Resources */,
+				34E81A5F285029B200467F20 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34E81A6A285029B200467F20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34E81A74285029B200467F20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		34E81A53285029AF00467F20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34E81A64285029B200467F20 /* Persistence.swift in Sources */,
+				34E81A67285029B200467F20 /* Slacker.xcdatamodeld in Sources */,
+				34E81A5D285029AF00467F20 /* ContentView.swift in Sources */,
+				34E81A5B285029AF00467F20 /* SlackerApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34E81A68285029B200467F20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34E81A71285029B200467F20 /* SlackerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34E81A72285029B200467F20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34E81A7D285029B200467F20 /* SlackerUITestsLaunchTests.swift in Sources */,
+				34E81A7B285029B200467F20 /* SlackerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		34E81A6E285029B200467F20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 34E81A56285029AF00467F20 /* Slacker */;
+			targetProxy = 34E81A6D285029B200467F20 /* PBXContainerItemProxy */;
+		};
+		34E81A78285029B200467F20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 34E81A56285029AF00467F20 /* Slacker */;
+			targetProxy = 34E81A77285029B200467F20 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		34E81A7E285029B200467F20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		34E81A7F285029B200467F20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		34E81A81285029B200467F20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Slacker/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.memerson.Slacker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		34E81A82285029B200467F20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Slacker/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.memerson.Slacker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		34E81A84285029B200467F20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.memerson.SlackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Slacker.app/Slacker";
+			};
+			name = Debug;
+		};
+		34E81A85285029B200467F20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.memerson.SlackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Slacker.app/Slacker";
+			};
+			name = Release;
+		};
+		34E81A87285029B200467F20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.memerson.SlackerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Slacker;
+			};
+			name = Debug;
+		};
+		34E81A88285029B200467F20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.memerson.SlackerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Slacker;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		34E81A52285029AF00467F20 /* Build configuration list for PBXProject "Slacker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34E81A7E285029B200467F20 /* Debug */,
+				34E81A7F285029B200467F20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		34E81A80285029B200467F20 /* Build configuration list for PBXNativeTarget "Slacker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34E81A81285029B200467F20 /* Debug */,
+				34E81A82285029B200467F20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		34E81A83285029B200467F20 /* Build configuration list for PBXNativeTarget "SlackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34E81A84285029B200467F20 /* Debug */,
+				34E81A85285029B200467F20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		34E81A86285029B200467F20 /* Build configuration list for PBXNativeTarget "SlackerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				34E81A87285029B200467F20 /* Debug */,
+				34E81A88285029B200467F20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		34E81A65285029B200467F20 /* Slacker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				34E81A66285029B200467F20 /* Slacker.xcdatamodel */,
+			);
+			currentVersion = 34E81A66285029B200467F20 /* Slacker.xcdatamodel */;
+			path = Slacker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 34E81A4F285029AF00467F20 /* Project object */;
+}
