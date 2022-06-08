@@ -12,28 +12,30 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Reminder.trigger, ascending: true)],
         animation: .default)
-    private var items: FetchedResults<Item>
+    private var reminders: FetchedResults<Reminder>
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(items) { item in
+                ForEach(reminders) { reminder in
                     NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                        Text("Reminder at \(reminder.trigger!, formatter: itemFormatter)")
                     } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+                        Text(reminder.trigger!, formatter: itemFormatter)
                     }
+
                 }
-                .onDelete(perform: deleteItems)
+                .onDelete(perform: deleteReminders)
             }
+            .listStyle(.plain)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
                 ToolbarItem {
-                    Button(action: addItem) {
+                    Button(action: addReminder) {
                         Label("Add Item", systemImage: "plus")
                     }
                 }
@@ -42,10 +44,10 @@ struct ContentView: View {
         }
     }
 
-    private func addItem() {
+    private func addReminder() {
         withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+            let newItem = Reminder(context: viewContext)
+            newItem.trigger = Date()
 
             do {
                 try viewContext.save()
@@ -58,9 +60,9 @@ struct ContentView: View {
         }
     }
 
-    private func deleteItems(offsets: IndexSet) {
+    private func deleteReminders(offsets: IndexSet) {
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
+            offsets.map { reminders[$0] }.forEach(viewContext.delete)
 
             do {
                 try viewContext.save()
@@ -84,5 +86,6 @@ private let itemFormatter: DateFormatter = {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+            .preferredColorScheme(.dark)
     }
 }
