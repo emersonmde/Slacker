@@ -3,8 +3,9 @@
     <entity name="Reminder" representedClassName="Reminder" syncable="YES" codeGenerationType="class">
         <attribute name="text" attributeType="String" defaultValueString=""/>
         <attribute name="trigger" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="Reminder" positionX="-63" positionY="-18" width="128" height="73"/>
+        <element name="Reminder" positionX="-63" positionY="-18" width="128" height="74"/>
     </elements>
 </model>

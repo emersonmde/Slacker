@@ -8,18 +8,6 @@
 import SwiftUI
 import CoreData
 
-struct MyTextFieldStyle: TextFieldStyle {
-    @Binding var focused: Bool
-    func _body(configuration: TextField<Self._Label>) -> some View {
-        configuration
-            .foregroundColor(focused ? .white : .gray)
-//        .padding(10)
-//        .background(
-//            RoundedRectangle(cornerRadius: 10, style: .continuous)
-//                .stroke(focused ? Color.red : Color.gray, lineWidth: 3)
-//        ).padding()
-    }
-}
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -30,71 +18,119 @@ struct ContentView: View {
     private var reminders: FetchedResults<Reminder>
     
     @State
-    private var input: String = "Remind me to [what] [when]"
+    private var reminderInput: String = ""
 
     @FocusState
     private var inputIsFocused: Bool
                 
-    @State private var editing = false
+    @State
+    private var editing = false
 
-    
-    
-    class ViewModel: ObservableObject {
-        @Published var input = "Remind me to " {
-            didSet {
-                if input.prefix(13) != "Remind me to " {
-                    input = "Remind me to " + input
-                }
-            }
-        }
-    }
-
-    @ObservedObject var viewModel = ViewModel()
-
+    @Environment(\.colorScheme)
+    var colorScheme
 
     var body: some View {
+        let isDarkMode = colorScheme == .dark
         NavigationView {
             VStack {
                 List {
                     ForEach(reminders) { reminder in
-                        NavigationLink {
-                            Text("Reminder at \(reminder.trigger!, formatter: itemFormatter)")
-                        } label: {
-                            Text("\(reminder.text!) \(reminder.trigger!, formatter: itemFormatter)")
-                        }
-
+                        Text("\(reminder.text!) at \(reminder.trigger!, formatter: itemFormatter)")
                     }
                     .onDelete(perform: deleteReminders)
                 }
                 .listStyle(.plain)
+                .navigationTitle("Reminders")
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
+                    ToolbarItem(placement: .primaryAction) {
                         EditButton()
-                    }
-                    ToolbarItem {
-                        Button(action: addReminder) {
-                            Label("Add Item", systemImage: "plus")
-                        }
                     }
                 }
                 Spacer()
-                TextField("Remind me to [what] [when]", text: $viewModel.input, onEditingChanged: { edit in
-                    self.editing = edit
-                })
-                    .focused($inputIsFocused)
-                    .textInputAutocapitalization(.never)
-                    .textFieldStyle(MyTextFieldStyle(focused: $editing))
-                    .font(.system(.body, design: .monospaced))
+                HStack {
+                    let focusTextColor = isDarkMode ? Color(UIColor.white) : Color(UIColor.black)
+                    let textColor = Color(UIColor.darkGray)
+                    Text("Remind me")
+                        .foregroundColor(self.editing ? focusTextColor : textColor)
+                        .font(.system(.body, design: .monospaced))
+                    // TODO: iOS 16 supports axis vertical
+                    TextField("[what] [when]", text: $reminderInput, onEditingChanged: { edit in
+                        self.editing = edit
+                    })
+                        .focused($inputIsFocused)
+                        .textInputAutocapitalization(.never)
+                        .font(.system(.body, design: .monospaced))
+                        .onSubmit {
+                            if let (what, when) = parseReminderText(reminderInput) {
+                                addReminder(what, when)
+                                reminderInput = ""
+                            }
+                        }
+                }.padding([.horizontal], 10)
 
             }
         }
     }
+    
+    private func parseReminderText(_ text: String) -> (String, Date)? {
+        let pattern = "(?<reminderText>.+) in (?<value>\\d+) (?<unit>hour|minute|second)s?$"
+        let regex = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive)
+        
+        var reminderText: String?
+        var value: Int?
+        var unit: Calendar.Component?
+        if let match = regex?.firstMatch(in: text, range: NSRange(location: 0, length: text.count)) {
+            if let reminderTextRange = Range(match.range(withName: "reminderText"), in: text) {
+                reminderText = String(text[reminderTextRange])
+            }
+            
+            if let valueRange = Range(match.range(withName: "value"), in: text) {
+                value = Int(text[valueRange]) ?? 1
+            }
+            
+            if let unitRange = Range(match.range(withName: "unit"), in: text) {
+                let unitString = String(text[unitRange])
+                switch unitString {
+                case "hour":
+                    unit = .hour
+                case "minute":
+                    unit = .minute
+                case "second":
+                    unit = .second
+                default:
+                    unit = .hour
+                }
+            }
+        }
+        
+        if reminderText != nil && value != nil && unit != nil {
+            let when = Calendar.current.date(
+                byAdding: unit!,
+                value: value!,
+                to: Date())
+            return (reminderText!, when!)
+        }
+        
+        return nil
+    }
+    
+    private func requestNotificationPermissions() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+            if success {
+                print("All set!")
+            } else if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
 
-    private func addReminder() {
+    private func addReminder(_ reminderText: String, _ date: Date) {
+        requestNotificationPermissions()
         withAnimation {
-            let newItem = Reminder(context: viewContext)
-            newItem.trigger = Date()
-            newItem.text = "reminder"
+            let newReminder = Reminder(context: viewContext)
+            newReminder.uuid = UUID()
+            newReminder.trigger = date
+            newReminder.text = reminderText
 
             do {
                 try viewContext.save()
@@ -104,10 +140,32 @@ struct ContentView: View {
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
+            
+            if let notificationText = newReminder.text, let notificationId: String = newReminder.uuid?.uuidString {
+                
+                let content = UNMutableNotificationContent()
+                content.title = "Slacker"
+                content.subtitle = notificationText
+                content.sound = UNNotificationSound.default
+
+                let components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+                let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+
+                // choose a random identifier
+                let request = UNNotificationRequest(identifier: notificationId, content: content, trigger: trigger)
+
+                // add our notification request
+                UNUserNotificationCenter.current().add(request)
+                
+            }
         }
     }
 
     private func deleteReminders(offsets: IndexSet) {
+        let reminderObjects = offsets.map { reminders[$0] }
+        let reminderUuids = reminderObjects.compactMap { $0.uuid }
+        let reminderUuidStrings = reminderUuids.map { $0.uuidString }
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: reminderUuidStrings)
         withAnimation {
             offsets.map { reminders[$0] }.forEach(viewContext.delete)
 
@@ -119,6 +177,7 @@ struct ContentView: View {
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
             }
+
         }
     }
 }
@@ -133,6 +192,5 @@ private let itemFormatter: DateFormatter = {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-            .preferredColorScheme(.dark)
     }
 }
